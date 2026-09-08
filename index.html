@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>派加优脑 | ADHD 儿童自然干预与家庭成长陪伴</title>
+  <meta name="description" content="深圳市派加优脑健康咨询有限公司专注 5-12 岁 ADHD 孩子的自然干预与家庭成长陪伴，提供功能医学检测、营养支持、年度陪伴和家庭干预系统课程。">
+  <style>
+    :root {
+      --ink: #24332f;
+      --muted: #5f6f69;
+      --soft: #f7f3ea;
+      --paper: #fffdf8;
+      --mint: #d9ece3;
+      --green: #2f7d67;
+      --green-dark: #1f5f4d;
+      --coral: #e88963;
+      --blue: #d7e9ef;
+      --line: rgba(36, 51, 47, 0.12);
+      --shadow: 0 18px 48px rgba(41, 63, 56, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(36, 51, 47, 0.08);
+      background: rgba(255, 253, 248, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--green), #6ca77a);
+      font-size: 18px;
+      box-shadow: 0 10px 26px rgba(47, 125, 103, 0.24);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+    }
+
+    .nav-cta,
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 10px 18px;
+      font-weight: 750;
+      line-height: 1.2;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .nav-cta,
+    .button.primary {
+      color: white;
+      background: var(--green);
+      box-shadow: 0 12px 26px rgba(47, 125, 103, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--green-dark);
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(47, 125, 103, 0.24);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background: #f4efe4;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 248, 0.98) 0%, rgba(255, 253, 248, 0.9) 34%, rgba(255, 253, 248, 0.42) 58%, rgba(255, 253, 248, 0.08) 100%),
+        url("assets/paijiayounao-hero.png") center / cover no-repeat;
+    }
+
+    .hero-inner {
+      position: relative;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 88px 0 112px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: rgba(217, 236, 227, 0.78);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .hero h1 {
+      max-width: 640px;
+      margin: 0;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 610px;
+      margin: 24px 0 0;
+      color: #40504b;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      width: min(1180px, calc(100% - 40px));
+      margin: -62px auto 0;
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .trust-item {
+      min-height: 116px;
+      padding: 24px;
+      background: rgba(255, 253, 248, 0.96);
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .trust-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .band {
+      background: var(--soft);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .pain-grid,
+    .service-grid,
+    .fit-grid,
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pain-card,
+    .service-card,
+    .fit-card,
+    .article-card,
+    .case-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.88);
+      box-shadow: 0 10px 32px rgba(41, 63, 56, 0.06);
+    }
+
+    .pain-card {
+      min-height: 132px;
+      padding: 24px;
+    }
+
+    .pain-card b,
+    .service-card h3,
+    .fit-card b,
+    .article-card b,
+    .case-card h3 {
+      display: block;
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .pain-card p,
+    .service-card p,
+    .fit-card p,
+    .article-card p,
+    .case-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .philosophy {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .philosophy-panel {
+      border-left: 5px solid var(--coral);
+      padding: 26px 30px;
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .philosophy-panel p {
+      margin: 0;
+      color: #485852;
+      font-size: 18px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pillar {
+      min-height: 148px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--green);
+      font-weight: 800;
+    }
+
+    .service-card {
+      min-height: 280px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-tag {
+      align-self: flex-start;
+      margin-top: 24px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: var(--mint);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      min-height: 188px;
+      padding: 20px;
+      border-radius: 8px;
+      background: white;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      color: white;
+      background: var(--coral);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .proof-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .proof-box {
+      padding: 34px;
+      border-radius: 8px;
+      color: white;
+      background: linear-gradient(135deg, var(--green-dark), #3e9277);
+    }
+
+    .proof-box h2 {
+      color: white;
+    }
+
+    .proof-box p {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .case-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-card {
+      padding: 26px;
+      background: white;
+    }
+
+    .fit-card,
+    .article-card {
+      min-height: 136px;
+      padding: 24px;
+    }
+
+    .cta {
+      padding: 78px 0;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(31, 95, 77, 0.95), rgba(47, 125, 103, 0.92)),
+        linear-gradient(45deg, var(--green), var(--coral));
+    }
+
+    .cta-inner {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 18px auto 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 18px;
+    }
+
+    .cta .hero-actions {
+      justify-content: center;
+    }
+
+    .cta .button.primary {
+      color: var(--green-dark);
+      background: white;
+      box-shadow: none;
+    }
+
+    .cta .button.secondary {
+      color: white;
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    footer {
+      padding: 42px 0;
+      color: #61716b;
+      background: #f0eadf;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .footer-grid strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .disclaimer {
+      color: #6e7974;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(255, 253, 248, 0.86) 46%, rgba(255, 253, 248, 0.38) 100%),
+          url("assets/paijiayounao-hero.png") 62% center / cover no-repeat;
+      }
+
+      .hero-inner {
+        padding: 74px 0 132px;
+      }
+
+      .trust-strip,
+      .pain-grid,
+      .service-grid,
+      .fit-grid,
+      .article-grid,
+      .philosophy,
+      .proof-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav,
+      .container,
+      .hero-inner,
+      .trust-strip,
+      .footer-grid,
+      .cta-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .pillars,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item,
+      .pain-card,
+      .service-card,
+      .case-card,
+      .fit-card,
+      .article-card,
+      .proof-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="派加优脑首页">
+        <span class="brand-mark">优</span>
+        <span>派加优脑<small>ADHD 自然干预与家庭成长陪伴</small></span>
+      </a>
+      <div class="nav-links" aria-label="页面栏目">
+        <a href="#services">服务项目</a>
+        <a href="#process">干预流程</a>
+        <a href="#cases">案例反馈</a>
+        <a href="#articles">科普文章</a>
+      </div>
+      <a class="nav-cta" href="#contact">预约咨询</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="派加优脑官网首屏">
+      <div class="hero-inner">
+        <p class="eyebrow">专注 5-12 岁 ADHD 儿童家庭</p>
+        <h1>给 ADHD 孩子的成长，不只靠“管”</h1>
+        <p>深圳市派加优脑健康咨询有限公司专注 ADHD 孩子的自然干预与家庭成长陪伴，结合功能医学检测、营养支持和家庭干预系统课程，帮助家庭找到更可持续的改善路径。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#contact">预约初步咨询</a>
+          <a class="button secondary" href="#services">了解服务体系</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="核心服务概览">
+      <div class="trust-item">
+        <strong>功能医学检测</strong>
+        <span>从营养、代谢、肠道等维度寻找支持方向</span>
+      </div>
+      <div class="trust-item">
+        <strong>营养支持</strong>
+        <span>结合孩子状态制定更个性化的营养建议</span>
+      </div>
+      <div class="trust-item">
+        <strong>年度陪伴</strong>
+        <span>阶段评估、执行反馈、方案持续调整</span>
+      </div>
+      <div class="trust-item">
+        <strong>家庭课程</strong>
+        <span>把干预方法带回真实的家庭生活</span>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">家长常见困扰</p>
+          <h2>孩子不是故意不听话，很多困难需要被重新理解</h2>
+          <p>注意力、情绪、执行功能、睡眠、饮食和家庭互动方式，都会影响 ADHD 孩子的日常表现。</p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card">
+            <b>作业启动困难</b>
+            <p>坐到书桌前很久也开始不了，家长越催，孩子越抗拒。</p>
+          </article>
+          <article class="pain-card">
+            <b>上课走神小动作多</b>
+            <p>老师频繁反馈，孩子自己也常常不知道怎么控制。</p>
+          </article>
+          <article class="pain-card">
+            <b>情绪来得很快</b>
+            <p>一点小事就爆发、哭闹、发火，亲子关系被反复消耗。</p>
+          </article>
+          <article class="pain-card">
+            <b>粗心漏题忘东西</b>
+            <p>明明会做，却总是丢三落四，很难稳定完成任务。</p>
+          </article>
+          <article class="pain-card">
+            <b>睡眠与饮食不稳定</b>
+            <p>挑食、肠胃敏感、睡不好，孩子精力状态忽高忽低。</p>
+          </article>
+          <article class="pain-card">
+            <b>家庭越管越累</b>
+            <p>方法很多，但难以坚持，家长需要更清晰的支持路径。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container philosophy">
+        <div class="section-head">
+          <p class="kicker">干预理念</p>
+          <h2>从身体基础和家庭系统一起支持孩子</h2>
+          <p>我们不把 ADHD 孩子的困难简单归因为“不自觉”或“不努力”，而是更完整地看见孩子每天的状态来自哪里。</p>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="num">1</span>
+            <b>身体基础</b>
+            <p>关注营养、睡眠、肠道、代谢等对注意力和情绪的影响。</p>
+          </div>
+          <div class="pillar">
+            <span class="num">2</span>
+            <b>家庭环境</b>
+            <p>帮助家长建立更稳定的回应方式和更可执行的日常规则。</p>
+          </div>
+          <div class="pillar">
+            <span class="num">3</span>
+            <b>行为支持</b>
+            <p>通过任务拆分、执行功能训练和情绪识别降低孩子挫败感。</p>
+          </div>
+          <div class="pillar">
+            <span class="num">4</span>
+            <b>长期陪伴</b>
+            <p>根据阶段变化持续复盘和调整，减少家庭独自摸索的成本。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head center">
+          <p class="kicker">主营业务</p>
+          <h2>四项服务，组成可落地的家庭支持系统</h2>
+          <p>从检测参考到日常执行，从课程学习到年度陪伴，让家长知道下一步怎么做。</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div>
+              <h3>功能医学检测</h3>
+              <p>通过营养、代谢、肠道、炎症、食物敏感等相关检测，为孩子的自然干预提供更具体的参考依据。</p>
+            </div>
+            <span class="service-tag">适合想深入了解身体基础的家庭</span>
+          </article>
+          <article class="service-card">
+            <div>
+              <h3>营养素支持方案</h3>
+              <p>根据检测结果、饮食习惯和日常表现，提供更精准的营养支持建议，帮助改善孩子成长所需的身体基础。</p>
+            </div>
+            <span class="service-tag">强调个性化，而不是盲目补充</span>
+          </article>
+          <article class="service-card">
+            <div>
+              <h3>年度成长陪伴</h3>
+              <p>提供阶段评估、方案调整、家长指导和执行反馈，帮助家庭在一年中持续获得专业支持。</p>
+            </div>
+            <span class="service-tag">适合希望长期跟进的家庭</span>
+          </article>
+          <article class="service-card">
+            <div>
+              <h3>家庭干预系统课程</h3>
+              <p>学习行为理解、情绪支持、作业启动、规则建立、执行功能训练和亲子沟通方法。</p>
+            </div>
+            <span class="service-tag">让方法回到每天的家庭生活</span>
+          </article>
+          <article class="service-card">
+            <div>
+              <h3>阶段复盘咨询</h3>
+              <p>围绕孩子当前表现和家庭执行情况，梳理关键问题，明确下一阶段更适合的支持重点。</p>
+            </div>
+            <span class="service-tag">减少反复试错</span>
+          </article>
+          <article class="service-card">
+            <div>
+              <h3>家长支持与陪跑</h3>
+              <p>帮助家长从焦虑、催促和内耗中走出来，建立更稳定、更有方向感的陪伴方式。</p>
+            </div>
+            <span class="service-tag">先稳住家庭，再支持孩子</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">服务流程</p>
+          <h2>从初步沟通到长期陪伴，每一步都看得见</h2>
+        </div>
+        <div class="process">
+          <div class="step">
+            <span>1</span>
+            <b>初步沟通</b>
+            <p>了解注意力、情绪、学习、睡眠、饮食和家庭互动情况。</p>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <b>综合评估</b>
+            <p>结合反馈、表现和必要检测，梳理主要困难。</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <b>制定方案</b>
+            <p>围绕营养、生活方式、家庭干预和执行功能支持制定计划。</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <b>家庭执行</b>
+            <p>把建议落实到饮食、作息、沟通、规则和训练中。</p>
+          </div>
+          <div class="step">
+            <span>5</span>
+            <b>阶段复盘</b>
+            <p>根据孩子变化和执行情况，持续调整方案。</p>
+          </div>
+          <div class="step">
+            <span>6</span>
+            <b>长期陪伴</b>
+            <p>在不同成长阶段，获得稳定、专业、可持续的支持。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="container proof-layout">
+        <div class="proof-box">
+          <p class="kicker" style="color: rgba(255,255,255,.78)">案例与反馈</p>
+          <h2>每个孩子的变化速度不同，但方向可以更清楚</h2>
+          <p>我们关注的不是制造焦虑或承诺快速改变，而是帮助家庭看懂孩子、找到重点、持续执行。</p>
+        </div>
+        <div class="case-list">
+          <article class="case-card">
+            <h3>作业启动困难</h3>
+            <p>一位 8 岁孩子写作业经常拖到晚上十点。经过阶段评估后，家庭从作息、饮食、任务拆分和沟通方式入手，逐步缩短作业启动时间，亲子冲突也明显减少。</p>
+          </article>
+          <article class="case-card">
+            <h3>情绪波动明显</h3>
+            <p>一位 6 岁孩子容易因为小事爆发。通过饮食记录、睡眠调整、情绪识别训练和家长回应方式优化，家庭逐步找到孩子情绪失控前的信号。</p>
+          </article>
+          <article class="case-card">
+            <h3>说明</h3>
+            <p>案例仅展示家庭干预过程中的阶段性变化，不代表对所有孩子的统一结果承诺。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="section-head center">
+          <p class="kicker">适合家庭</p>
+          <h2>如果你正在寻找药物之外或配合药物之外的支持方式</h2>
+        </div>
+        <div class="fit-grid">
+          <article class="fit-card">
+            <b>5-12 岁儿童家庭</b>
+            <p>已确诊或疑似 ADHD、注意力困难、执行功能弱。</p>
+          </article>
+          <article class="fit-card">
+            <b>长期被作业困扰</b>
+            <p>孩子拖拉、粗心、漏题、抗拒学习，家庭每天都在拉扯。</p>
+          </article>
+          <article class="fit-card">
+            <b>情绪与冲动明显</b>
+            <p>孩子容易爆发、坐不住、规则感弱，家长需要可执行方法。</p>
+          </article>
+          <article class="fit-card">
+            <b>重视自然干预</b>
+            <p>希望从营养、睡眠、生活方式和家庭系统中寻找支持。</p>
+          </article>
+          <article class="fit-card">
+            <b>愿意共同参与</b>
+            <p>认可孩子改变需要家庭一起学习和长期陪伴。</p>
+          </article>
+          <article class="fit-card">
+            <b>需要专业跟进</b>
+            <p>不想只听一次建议，而是希望有人持续复盘和调整。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">科普文章</p>
+          <h2>了解 ADHD，才能更好地支持孩子</h2>
+          <p>官网后续可以持续发布科普内容，用专业解释和真实家庭场景增强信任。</p>
+        </div>
+        <div class="article-grid">
+          <article class="article-card">
+            <b>ADHD 孩子为什么总是“启动不了”？</b>
+            <p>从执行功能角度理解孩子的拖拉和抗拒。</p>
+          </article>
+          <article class="article-card">
+            <b>营养、睡眠和注意力之间有什么关系？</b>
+            <p>看见身体基础对孩子日常状态的影响。</p>
+          </article>
+          <article class="article-card">
+            <b>家长越催越累，是方法错了吗？</b>
+            <p>把催促变成支持，降低家庭内耗。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="cta-inner">
+        <h2>每个 ADHD 孩子的困难背后，都有值得被认真理解的原因</h2>
+        <p>如果你正在为孩子的注意力、情绪、学习和家庭关系感到焦虑，欢迎预约一次初步咨询，先把孩子当前最需要支持的方向梳理清楚。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#contact">预约初步咨询</a>
+          <a class="button secondary" href="#contact">了解年度成长陪伴方案</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <strong>深圳市派加优脑健康咨询有限公司</strong>
+        <div>电话：待填写</div>
+        <div>微信：待填写</div>
+        <div>地址：深圳市，具体地址待填写</div>
+      </div>
+      <div class="disclaimer">
+        本网站内容仅用于健康管理与家庭教育支持参考，不替代医疗诊断或治疗。如孩子存在明显发育、情绪、行为或医学问题，请及时咨询专业医疗机构。
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
