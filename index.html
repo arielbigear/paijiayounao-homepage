@@ -619,6 +619,64 @@
         padding: 22px;
       }
     }
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(24, 37, 33, 0.68);
+    }
+
+    .qr-modal.is-open {
+      display: flex;
+    }
+
+    .qr-dialog {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      text-align: center;
+    }
+
+    .qr-dialog h3 {
+      margin: 0 0 6px;
+      color: var(--green-dark);
+      font-size: 22px;
+    }
+
+    .qr-dialog p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .qr-dialog img {
+      width: min(100%, 360px);
+      margin: 0 auto;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .qr-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      color: var(--muted);
+      background: rgba(36, 51, 47, 0.08);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -921,8 +979,8 @@
         <h2>每个 ADHD 孩子的困难背后，都有值得被认真理解的原因</h2>
         <p>如果你正在为孩子的注意力、情绪、学习和家庭关系感到焦虑，欢迎预约一次初步咨询，先把孩子当前最需要支持的方向梳理清楚。</p>
         <div class="hero-actions">
-          <a class="button primary" href="#contact">预约初步咨询</a>
-          <a class="button secondary" href="#contact">了解年度成长陪伴方案</a>
+          <button class="button primary" type="button" data-qr-open>预约初步咨询</button>
+          <button class="button secondary" type="button" data-qr-open>了解年度成长陪伴方案</button>
         </div>
       </div>
     </section>
@@ -939,5 +997,38 @@
       </div>
     </div>
   </footer>
+  <div class="qr-modal" id="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+    <div class="qr-dialog">
+      <button class="qr-close" type="button" aria-label="关闭二维码弹窗">×</button>
+      <h3 id="qr-modal-title">添加企业微信</h3>
+      <p>长按或扫码添加客服，了解更多成长陪伴方案。</p>
+      <img src="assets/wechat-qr.jpg" alt="企业微信客服二维码">
+    </div>
+  </div>
+  <script>
+    const qrModal = document.getElementById('qr-modal');
+    const qrOpenButtons = document.querySelectorAll('[data-qr-open]');
+    const qrCloseButton = qrModal.querySelector('.qr-close');
+
+    const closeQrModal = () => {
+      qrModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    qrOpenButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        qrModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    qrCloseButton.addEventListener('click', closeQrModal);
+    qrModal.addEventListener('click', (event) => {
+      if (event.target === qrModal) closeQrModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeQrModal();
+    });
+  </script>
 </body>
 </html>
